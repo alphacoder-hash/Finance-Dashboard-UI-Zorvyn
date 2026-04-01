@@ -138,30 +138,18 @@ Modals (like the Add Transaction form) are intentionally shifted to the **top-th
 
 ---
 
-## 🏆 Project Objectives (Evaluation Mapping)
+## 🎯 Project Objectives (Evaluation Mapping)
 - **Clean Readability**: Achieved via 44px margins and a standardized typography scale.
-- **Responsiveness**: Fully fluid layouts stacking at 768px for mobile
-
-## 📸 Product Gallery
-
-### Executive Overview
-![Dashboard Overview](./public/screenshots/dashboard_overview.png)
-*Modern Glassmorphic Interface with real-time liquidity tracking and transactional trends.*
-
-### AI Insights & Analytics
-![AI Insights](./public/screenshots/insights_analytics.png)
-*Adaptive spending observations and month-over-month comparison engine.*
-
-### Transaction Ledger
-![Transaction View](./public/screenshots/transactions_view.png)
-*High-performance data grid with advanced filtering, sorting, and click-to-copy Order IDs.*
+- **Responsiveness**: Fully fluid layouts stacking at 768px for mobile mastery.
+- **Functionality**: Full CRUD lifecycle for transactions with reactive data views.
+- **Technical Quality**: Decentralized "Global Brain" state management using Context API.
 
 ---
 
 ## 🛠️ Technical Architecture
 
 ### 🧠 The "Global Brain" (Context API)
-Fintrixity utilizes a centralized state machine built with **React Context + useReducer**. This architecture ensures:
+Zorvyn utilizes a centralized state machine built with **React Context + useReducer**. This architecture ensures:
 - **Predictable Transitions**: All state changes are governed by constant `ActionTypes`.
 - **Robust Persistence**: Automatic serialization to `localStorage` with defensive hydration guards.
 - **Role-Based Enforcement**: Middleware-style checks for Admin/Viewer capabilities.
