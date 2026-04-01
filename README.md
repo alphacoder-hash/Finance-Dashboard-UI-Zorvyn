@@ -1,5 +1,7 @@
 # Fintrixity: Premium Personal Finance Dashboard 💎📊
 
+**[🌐 Live Demo: finance-dashboard-ui-zorvyn-tau.vercel.app](https://finance-dashboard-ui-zorvyn-tau.vercel.app/)**
+
 **Fintrixity** is an enterprise-grade financial management application built with **React 19** and **Vite**. It features a modern, high-contrast glassmorphic design, robust state persistence, and role-based access control (RBAC).
 
 ---
