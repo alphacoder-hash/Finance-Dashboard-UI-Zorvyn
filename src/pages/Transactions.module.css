@@ -1,0 +1,177 @@
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.filtersCard {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border: 1px solid var(--border);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.searchInput {
+  background-color: var(--bg-base);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  flex: 1;
+  min-width: 200px;
+}
+.searchInput:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+.selectInput {
+  background-color: var(--bg-base);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.actionBtn {
+  background: var(--accent-gradient);
+  color: white;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.copyable {
+  display: inline-block;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-family: var(--font-mono);
+}
+
+.copyable:hover {
+  background: var(--accent-glow);
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.copyable:active {
+  transform: scale(0.95);
+}
+
+.tableCard {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: flex;
+  padding: 16px 24px;
+  background-color: var(--bg-surface-light);
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.2s;
+}
+.tableRow:hover {
+  background-color: var(--bg-surface-light);
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.pillIncome {
+  background-color: var(--success-bg);
+  color: var(--success);
+}
+.pillExpense {
+  background-color: var(--expense-bg);
+  color: var(--expense);
+}
+
+.amountIncome {
+  color: var(--success);
+  font-weight: 600;
+}
+.amountExpense {
+  font-weight: 600;
+}
+
+.iconBox {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionGroup {
+  display: flex;
+  gap: 8px;
+}
+.iconBtn {
+  padding: 6px;
+  color: var(--text-secondary);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.iconBtn:hover {
+  background-color: rgba(255,255,255,0.1);
+  color: white;
+}
+.deleteBtn:hover {
+  background-color: var(--expense-bg);
+  color: var(--expense);
+}

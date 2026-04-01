@@ -1,0 +1,29 @@
+.card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--border-focus);
+}
+
+.primary {
+  background: var(--accent-gradient);
+  border: none;
+  color: white;
+}
+
+.primary:hover {
+  box-shadow: 0 12px 40px rgba(255, 90, 31, 0.3);
+}
+
+.noPadding {
+  padding: 0;
+}
