@@ -51,8 +51,8 @@ function reducer(state, action) {
       return { ...state, isLoading: false };
     case ACTIONS.ADD_TRANSACTION:
       if (state.role === 'viewer') return { ...state, toasts: [...state.toasts, { id: Date.now(), message: 'Access Denied: Viewer role remains view-only.', type: 'error' }] };
-      return { 
-        ...state, 
+      return {
+        ...state,
         transactions: [action.payload, ...state.transactions],
         toasts: [...state.toasts, { id: Date.now(), message: 'Transaction Added!', type: 'success' }]
       };
@@ -92,12 +92,12 @@ export function AppProvider({ children }) {
       const saved = localStorage.getItem('fintrixity_state');
       if (saved) {
         const parsed = JSON.parse(saved);
-        
+
         // Safety: Ensure filters structure is correct and category is string 'all'
         if (parsed.filters && Array.isArray(parsed.filters.category)) {
           parsed.filters.category = 'all';
         }
-        
+
         // Ensure all required filter keys exist
         parsed.filters = { ...initial.filters, ...(parsed.filters || {}) };
 
@@ -106,7 +106,7 @@ export function AppProvider({ children }) {
           return { ...parsed, toasts: [], transactions: initial.transactions };
         }
         // Ensure toasts array is empty on refresh
-        return { ...parsed, toasts: [], isLoading: true }; 
+        return { ...parsed, toasts: [], isLoading: true };
       }
     } catch (e) {
       console.error('Failed to parse local storage', e);

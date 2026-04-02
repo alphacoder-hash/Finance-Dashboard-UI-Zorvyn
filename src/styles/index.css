@@ -8,16 +8,16 @@
   --bg-surface-light: #2A2A2A;
   --border: #333333;
   --border-focus: #555555;
-  
+
   --accent-primary: #FF5A1F;
   --accent-gradient: linear-gradient(135deg, #FF7B00, #FF3D00);
   --accent-hover: #E04D1A;
   --accent-glow: rgba(255, 90, 31, 0.2);
-  
+
   --text-primary: #FFFFFF;
   --text-secondary: #A0A0A0;
   --text-muted: #666666;
-  
+
   --success: #10B981;
   --success-bg: rgba(16, 185, 129, 0.1);
   --expense: #EF4444;
@@ -26,7 +26,7 @@
   --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  
+
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 20px;
@@ -38,11 +38,11 @@
   --bg-surface-light: #F9FAFB;
   --border: #E5E7EB;
   --border-focus: #D1D5DB;
-  
+
   --text-primary: #111827;
   --text-secondary: #4B5563;
   --text-muted: #9CA3AF;
-  
+
   --success-bg: rgba(16, 185, 129, 0.08);
   --expense-bg: rgba(239, 68, 68, 0.08);
   --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -54,7 +54,9 @@
   padding: 0;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
   max-width: 100%;
@@ -87,7 +89,8 @@ ul {
   list-style: none;
 }
 
-input, select {
+input,
+select {
   font-family: inherit;
 }
 
@@ -95,13 +98,16 @@ input, select {
   width: 8px;
   height: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: var(--bg-surface); 
+  background: var(--bg-surface);
 }
+
 ::-webkit-scrollbar-thumb {
-  background: var(--border); 
+  background: var(--border);
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted); 
+  background: var(--text-muted);
 }

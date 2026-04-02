@@ -8,6 +8,7 @@ import SpendingBreakdown from '../components/dashboard/SpendingBreakdown';
 import WalletCard from '../components/dashboard/WalletCard';
 import BudgetProgress from '../components/dashboard/BudgetProgress';
 import classes from '../components/dashboard/Dashboard.module.css';
+import { ACTIONS } from '../context/ActionTypes';
 
 import Skeleton from '../components/ui/Skeleton';
 
@@ -33,20 +34,20 @@ const Dashboard = () => {
 
   return (
     <div>
-      <PageHeader 
-        title="Overview" 
+      <PageHeader
+        title="Overview"
         subtitle="Here is the summary of overall data"
         rightContent={
           <>
-            <button 
+            <button
               style={{ padding: '8px 16px', backgroundColor: 'var(--bg-surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: '13px', cursor: 'pointer' }}
-              onClick={() => dispatch({ type: 'ADD_TOAST', payload: { message: 'Date range changed (Mock)', type: 'success' } })}
+              onClick={() => dispatch({ type: ACTIONS.ADD_TOAST, payload: { message: 'Date range changed (Mock)', type: 'success' } })}
             >This Month ⌄</button>
-            <button 
+            <button
               style={{ padding: '8px 16px', backgroundColor: 'var(--bg-surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', fontSize: '13px', cursor: 'pointer' }}
               onClick={() => {
                 if (window.confirm('Are you sure you want to reset demo data?')) {
-                  dispatch({ type: 'RESET_DATA' });
+                  dispatch({ type: ACTIONS.RESET_DATA });
                 }
               }}
             >⟳ Reset Data</button>
@@ -55,7 +56,7 @@ const Dashboard = () => {
       />
 
       <OverviewCards />
-      
+
       <div className={classes.middleGrid}>
         <WalletCard />
         <CashFlowChart />

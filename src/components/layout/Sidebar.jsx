@@ -65,7 +65,7 @@ const Sidebar = () => {
               className={classes.logoutBtn}
               onClick={() => {
                 if (window.confirm('Reset session and change role?')) {
-                  dispatch({ type: 'SET_ROLE', payload: '' });
+                  dispatch({ type: ACTIONS.SET_ROLE, payload: '' });
                   window.location.reload();
                 }
               }}

@@ -2,13 +2,14 @@ import React, { useEffect } from 'react';
 import { CheckCircle, XCircle, X } from 'lucide-react';
 import { useAppContext } from '../../context/AppContext';
 import styles from './Toast.module.css';
+import { ACTIONS } from '../../context/ActionTypes';
 
 const ToastItem = ({ toast }) => {
   const { dispatch } = useAppContext();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      dispatch({ type: 'REMOVE_TOAST', payload: toast.id });
+      dispatch({ type: ACTIONS.REMOVE_TOAST, payload: toast.id });
     }, 3000);
     return () => clearTimeout(timer);
   }, [toast.id, dispatch]);
@@ -23,7 +24,7 @@ const ToastItem = ({ toast }) => {
       <span className={styles.message}>{toast.message}</span>
       <button
         className={styles.closeBtn}
-        onClick={() => dispatch({ type: 'REMOVE_TOAST', payload: toast.id })}
+        onClick={() => dispatch({ type: ACTIONS.REMOVE_TOAST, payload: toast.id })}
       >
         <X size={14} />
       </button>

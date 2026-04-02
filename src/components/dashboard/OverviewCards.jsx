@@ -42,7 +42,7 @@ const OverviewCards = () => {
           
           <div className={classes.cardBody} style={{ padding: '0', zIndex: 2 }}>
             <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px', fontWeight: 500, marginBottom: '8px' }}>Total Balance</p>
-            <h2 style={{ color: 'white', fontSize: '38px', fontWeight: 800, margin: 0, letterSpacing: '-0.02em' }}>
+            <h2 className={classes.heroAmount} style={{ color: 'white' }}>
               {formatCurrency(balanceAnim, currency)}
             </h2>
           </div>

@@ -9,12 +9,12 @@ const Header = () => {
   const { state, dispatch } = useAppContext();
   const [scrolled, setScrolled] = useState(false);
   const searchRef = React.useRef(null);
-  
+
   useKeyboardShortcuts({
     onSearch: () => searchRef.current?.focus(),
     onNewTransaction: () => dispatch({ type: ACTIONS.ADD_TOAST, payload: { message: 'Shortcuts active: Try Ctrl+K for search!', type: 'info' } })
   });
-  
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -37,22 +37,22 @@ const Header = () => {
         <Menu size={20} />
       </button>
       <div className={classes.searchBar}>
-        <input 
+        <input
           ref={searchRef}
-          type="text" 
-          placeholder="Search..." 
+          type="text"
+          placeholder="Search..."
           value={state.filters.search}
-          onChange={(e) => dispatch({ type: 'SET_FILTER', payload: { search: e.target.value } })}
+          onChange={(e) => dispatch({ type: ACTIONS.SET_FILTERS, payload: { search: e.target.value } })}
         />
       </div>
-      
+
       <div className={classes.userActions}>
-        <button 
-          className={classes.avatar} 
-          onClick={toggleTheme} 
-          style={{ 
-            cursor: 'pointer', 
-            background: 'var(--bg-surface-light)', 
+        <button
+          className={classes.avatar}
+          onClick={toggleTheme}
+          style={{
+            cursor: 'pointer',
+            background: 'var(--bg-surface-light)',
             border: '1px solid var(--border)',
             width: '44px',
             height: '40px',
@@ -74,9 +74,9 @@ const Header = () => {
         )}
 
         <div className={classes.roleSwitcher}>
-          <select 
-            value={state.currency} 
-            onChange={(e) => dispatch({ type: 'SET_CURRENCY', payload: e.target.value })}
+          <select
+            value={state.currency}
+            onChange={(e) => dispatch({ type: ACTIONS.SET_CURRENCY, payload: e.target.value })}
             className={classes.roleSelect}
             style={{ width: '80px' }}
           >
@@ -87,35 +87,35 @@ const Header = () => {
         </div>
 
         <div className={classes.roleToggle}>
-          <button 
+          <button
             className={`${classes.toggleOption} ${state.role === 'viewer' ? classes.toggleActive : ''}`}
             onClick={() => {
-              dispatch({ type: 'SET_ROLE', payload: 'viewer' });
-              dispatch({ type: 'ADD_TOAST', payload: { message: 'Viewer Mode Active: Read-Only', type: 'info' } });
+              dispatch({ type: ACTIONS.SET_ROLE, payload: 'viewer' });
+              dispatch({ type: ACTIONS.ADD_TOAST, payload: { message: 'Viewer Mode Active: Read-Only', type: 'info' } });
             }}
           >
             Viewer
           </button>
-          <button 
+          <button
             className={`${classes.toggleOption} ${state.role === 'admin' ? classes.toggleActive : ''}`}
             onClick={() => {
-              dispatch({ type: 'SET_ROLE', payload: 'admin' });
-              dispatch({ type: 'ADD_TOAST', payload: { message: 'Admin Access Enabled! 🔓', type: 'success' } });
+              dispatch({ type: ACTIONS.SET_ROLE, payload: 'admin' });
+              dispatch({ type: ACTIONS.ADD_TOAST, payload: { message: 'Admin Access Enabled! 🔓', type: 'success' } });
             }}
           >
             Admin
           </button>
         </div>
-        <div 
-          className={classes.avatar} 
+        <div
+          className={classes.avatar}
           style={{ cursor: 'pointer' }}
-          onClick={() => dispatch({ type: 'ADD_TOAST', payload: { message: 'Profile settings opened', type: 'success' } })}
+          onClick={() => dispatch({ type: ACTIONS.ADD_TOAST, payload: { message: 'Profile settings opened', type: 'success' } })}
         >
           <User size={18} color="#FF5A1F" />
         </div>
-        <button 
+        <button
           className={classes.shareBtn}
-          onClick={() => dispatch({ type: 'ADD_TOAST', payload: { message: 'Invite link copied to clipboard!', type: 'success' } })}
+          onClick={() => dispatch({ type: ACTIONS.ADD_TOAST, payload: { message: 'Invite link copied to clipboard!', type: 'success' } })}
         >
           Share
         </button>

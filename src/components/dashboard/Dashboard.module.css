@@ -208,6 +208,15 @@
   font-weight: 800;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+.heroAmount {
+  font-size: 38px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .badgePrimary {
@@ -459,6 +468,12 @@
   }
 }
 
+@media (max-width: 900px) {
+  .overviewGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .overviewGrid {
     grid-template-columns: 1fr;
@@ -474,7 +489,15 @@
   }
 
   .amount {
-    font-size: 28px;
+    font-size: 26px;
+  }
+
+  .heroAmount {
+    font-size: 30px;
+  }
+
+  .hideMobile {
+    display: none !important;
   }
 
   .chartHeader {
@@ -501,6 +524,10 @@
 
 @media (max-width: 480px) {
   .amount {
+    font-size: 22px;
+  }
+
+  .heroAmount {
     font-size: 24px;
   }
 

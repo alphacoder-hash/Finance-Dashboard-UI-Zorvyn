@@ -4,6 +4,7 @@ import { getCategoryConfig } from '../../data/categories';
 import { Search, MoreHorizontal } from 'lucide-react';
 import { formatCurrency } from '../../utils/currencyUtils';
 import classes from './Dashboard.module.css';
+import { ACTIONS } from '../../context/ActionTypes';
 
 import { useFilteredData } from '../../hooks/useFilteredData';
 
@@ -39,9 +40,9 @@ const RecentActivities = () => {
     <div style={{ flex: 1 }}>
       <div className={classes.tableHeader}>
         <div style={{ flex: 2 }}>Activity</div>
-        <div style={{ flex: 1.5 }}>Order ID</div>
+        <div style={{ flex: 1.5 }} className={classes.hideMobile}>Order ID</div>
         <div style={{ flex: 1.5 }}>Date</div>
-        <div style={{ flex: 1 }}>Time</div>
+        <div style={{ flex: 1 }} className={classes.hideMobile}>Time</div>
         <div style={{ flex: 1 }}>Price</div>
         <div style={{ flex: 1 }}>Status</div>
         <div style={{ width: 40 }}></div>
@@ -61,9 +62,9 @@ const RecentActivities = () => {
                     <span style={{ fontWeight: 500 }}>{tx.description}</span>
                   </div>
                   
-                  <div style={{ flex: 1.5, color: 'var(--text-secondary)' }}>{tx.orderId}</div>
+                  <div style={{ flex: 1.5, color: 'var(--text-secondary)' }} className={classes.hideMobile}>{tx.orderId}</div>
                   <div style={{ flex: 1.5, color: 'var(--text-secondary)' }}>{tx.date}</div>
-                  <div style={{ flex: 1, color: 'var(--text-secondary)' }}>{tx.time}</div>
+                  <div style={{ flex: 1, color: 'var(--text-secondary)' }} className={classes.hideMobile}>{tx.time}</div>
                   
                   <div style={{ flex: 1, fontWeight: 600 }}>{formatCurrency(tx.amount, currency)}</div>
                   
@@ -77,7 +78,7 @@ const RecentActivities = () => {
                   <div style={{ width: 40, display: 'flex', justifyContent: 'center' }}>
                     <button 
                       style={{ color: 'var(--text-secondary)', cursor: 'pointer' }}
-                      onClick={() => dispatch({ type: 'ADD_TOAST', payload: { message: `Viewing details for ${tx.orderId}`, type: 'success' } })}
+                      onClick={() => dispatch({ type: ACTIONS.ADD_TOAST, payload: { message: `Viewing details for ${tx.orderId}`, type: 'success' } })}
                     >
                       <MoreHorizontal size={18} />
                     </button>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useAppContext } from '../../context/AppContext';
 import { Shield, Eye, Lock, ArrowRight } from 'lucide-react';
 import classes from './RoleGuard.module.css';
+import { ACTIONS } from '../../context/ActionTypes';
 
 const RoleGuard = ({ children }) => {
   const { state, dispatch } = useAppContext();
@@ -24,7 +25,7 @@ const RoleGuard = ({ children }) => {
             <div className={classes.optionsGrid}>
               <button 
                 className={`${classes.optionCard} ${classes.adminCard}`}
-                onClick={() => dispatch({ type: 'SET_ROLE', payload: 'admin' })}
+                onClick={() => dispatch({ type: ACTIONS.SET_ROLE, payload: 'admin' })}
               >
                 <div className={classes.iconWrapper}>
                   <Shield size={32} />
@@ -38,7 +39,7 @@ const RoleGuard = ({ children }) => {
 
               <button 
                 className={`${classes.optionCard} ${classes.viewerCard}`}
-                onClick={() => dispatch({ type: 'SET_ROLE', payload: 'viewer' })}
+                onClick={() => dispatch({ type: ACTIONS.SET_ROLE, payload: 'viewer' })}
               >
                 <div className={classes.iconWrapper}>
                   <Eye size={32} />
