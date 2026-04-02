@@ -99,18 +99,48 @@ const InsightsContent = () => {
           </ResponsiveContainer>
         </div>
 
-        <div className={`${classes.chartCard} animate-fade-in delay-600`}>
+        <div className={`${classes.chartCard} animate-fade-in delay-600`} style={{ display: 'flex', flexDirection: 'column' }}>
           <h3 className={classes.chartTitle}>Category Mix</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie data={spendingData} innerRadius={60} outerRadius={80} paddingAngle={5} dataKey="value">
-                {spendingData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
-              </Pie>
-              <Tooltip />
-            </PieChart>
-          </ResponsiveContainer>
+          
+          <div className={classes.donutWrapper}>
+            <ResponsiveContainer width="100%" height={250}>
+              <PieChart>
+                <Pie 
+                  data={spendingData} 
+                  innerRadius={70} 
+                  outerRadius={95} 
+                  paddingAngle={8} 
+                  dataKey="value"
+                  stroke="none"
+                  animationBegin={200}
+                  animationDuration={1500}
+                >
+                  {spendingData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} style={{ filter: `drop-shadow(0 0 8px ${entry.color}40)` }} />
+                  ))}
+                </Pie>
+                <Tooltip 
+                  contentStyle={{ backgroundColor: 'var(--bg-surface)', borderColor: 'var(--border)', borderRadius: '12px' }}
+                  itemStyle={{ fontSize: '13px', fontWeight: 600 }}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+
+            <div className={classes.donutLabel}>
+              <span className={classes.donutLabelValue}>{spendingData[0]?.value}%</span>
+              <span className={classes.donutLabelName}>{spendingData[0]?.name}</span>
+            </div>
+          </div>
+
+          <div className={classes.categoryGrid}>
+            {spendingData.map((item) => (
+              <div key={item.name} className={classes.categoryChip}>
+                <div className={classes.categoryDot} style={{ backgroundColor: item.color, color: item.color }}></div>
+                <span className={classes.categoryName}>{item.name}</span>
+                <span className={classes.categoryPercent}>{item.value}%</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

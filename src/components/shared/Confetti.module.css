@@ -17,16 +17,26 @@
   height: var(--size);
   background-color: var(--color);
   border-radius: 2px;
-  animation: fall 3s linear var(--delay) forwards;
+  animation: fall 3s cubic-bezier(.17,.67,.83,.67) var(--delay) forwards;
+  opacity: 0;
 }
 
 @keyframes fall {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(0deg) skew(0deg);
     opacity: 1;
   }
+  25% {
+    transform: translateY(25vh) rotate(180deg) skew(15deg) translateX(20px);
+  }
+  50% {
+    transform: translateY(50vh) rotate(360deg) skew(-15deg) translateX(-20px);
+  }
+  75% {
+    transform: translateY(75vh) rotate(540deg) skew(15deg) translateX(20px);
+  }
   100% {
-    transform: translateY(110vh) rotate(720deg);
+    transform: translateY(110vh) rotate(720deg) skew(0deg) translateX(0);
     opacity: 0;
   }
 }
