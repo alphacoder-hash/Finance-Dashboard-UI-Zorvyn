@@ -114,8 +114,30 @@
 
 .observationsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  grid-auto-flow: dense;
+}
+
+@media (max-width: 1024px) {
+  .observationsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Make the 3rd card span full width for better balance in a 2-column layout */
+  .observationsGrid > div:last-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .observationsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .observationsGrid > div:last-child {
+    grid-column: span 1;
+  }
 }
 
 .observationCard {
@@ -176,6 +198,92 @@
 
 .trendPositive { color: var(--success); }
 .trendNegative { color: var(--expense); }
+
+/* Category Mix Premium Styles */
+.donutWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 250px;
+}
+
+.donutLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.donutLabelValue {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-primary);
+  display: block;
+}
+
+.donutLabelName {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.categoryChip {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.categoryChip:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+}
+
+.categoryDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.categoryName {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.categoryPercent {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
 
 @media (max-width: 1024px) {
   .metricsGrid {
